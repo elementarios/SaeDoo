@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
@@ -9,16 +10,20 @@
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="83.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label text="Label" />
+            <Label text="Recherche :">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <TextField />
          </children>
       </HBox>
       <TableView layoutX="14.0" layoutY="69.0" prefHeight="317.0" prefWidth="469.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="117.0" AnchorPane.topAnchor="69.0">
         <columns>
           <TableColumn prefWidth="75.0" text="ID" />
-          <TableColumn prefWidth="75.0" text="Prenom" />
-            <TableColumn prefWidth="75.0" text="Nom" />
-            <TableColumn prefWidth="152.0" text="Email" />
-            <TableColumn prefWidth="91.0" text="Nb Billets" />
+          <TableColumn prefWidth="95.0" text="Prenom" />
+            <TableColumn prefWidth="127.0" text="Nom" />
+            <TableColumn prefWidth="171.0" text="Email" />
         </columns>
          <contextMenu>
             <ContextMenu>
