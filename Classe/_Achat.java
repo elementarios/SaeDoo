@@ -1,6 +1,8 @@
 package Classe;
 
-public class _Achat {
+import java.io.Serializable;
+
+public class _Achat implements Serializable {
     //atribut
     public Client client;
     public Billet billet;
@@ -11,6 +13,7 @@ public class _Achat {
         this.client=c;
         this.billet=b;
         this.methodePayement=methode;
+        this.achat();
     }
 
     //methode
@@ -48,7 +51,11 @@ public class _Achat {
     }
 
     public void achat(){
+        if(this.billet.getClient()!=null){
+            this.billet.getClient().remove(this.billet);    // on enleve le billet de son ancien proprietaire 
+        }                                                   //comme un billet a un seul proprietaire
         this.billet.setClient(this.client);
+        this.billet.setAchat(this);
         this.client.add(billet);
     }
 }

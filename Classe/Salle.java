@@ -1,6 +1,8 @@
 package Classe;
 
-public class Salle {
+import java.io.Serializable;
+
+public class Salle implements Serializable  {
     //attribut
     private String nom;
 

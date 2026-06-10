@@ -1,8 +1,9 @@
 package Classe;
 
+import java.io.Serializable;
 import java.util.HashSet;
 
-public class Client {
+public class Client implements Serializable {
     //attributs
     private String id;
     private String nom;
@@ -18,6 +19,7 @@ public class Client {
         this.prenom = prenom;
         this.email = email;
         this.adresse = new Adresse(num, rue, ville, code);
+        this.billets = new HashSet<>();
         this.billets.clear();
     }
 
@@ -27,6 +29,7 @@ public class Client {
         this.prenom=prenom;
         this.email=email;
         this.adresse=adresse;
+        this.billets = new HashSet<>();
         this.billets.clear();
     }
     //methode

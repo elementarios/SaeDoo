@@ -1,6 +1,8 @@
 package Classe;
 
-public class Artiste extends Spectacle {
+import java.io.Serializable;
+
+public class Artiste extends Spectacle implements Serializable  {
     //attributs
     private String nom;
 

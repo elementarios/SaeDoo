@@ -1,8 +1,9 @@
 package Classe;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Billet {
+public class Billet implements Serializable {
     //attributs
     private int numero;
     private Date date_debut;
@@ -10,26 +11,41 @@ public class Billet {
     private Spectacle spectacle;
     private Client client;
     private static int num = 1;
+    private _Achat achat;
 
     //constructeur
     @SuppressWarnings("deprecation")
-    public Billet(int year,int month,int day,int hrs,int min,Salle salle,Orchestre orc,Client c){
+    public Billet(int year,int month,int day,int hrs,int min,Salle salle,Orchestre orc){
         this.numero=Billet.num;
         Billet.num++;
+
+        month = month-1;
+        if(month == -1){ //correction du mois
+            month = 12;
+        }
+
         this.date_debut = new Date(year, month, day, hrs, min);
         this.salle = salle;
         this.spectacle = orc;
-        this.client = c;
+        this.client = null;
+        this.achat = null;
     }
 
     @SuppressWarnings("deprecation")
-    public Billet(int year,int month,int day,int hrs,int min,Salle salle,Artiste art,Client c){
+    public Billet(int year,int month,int day,int hrs,int min,Salle salle,Artiste art){
         this.numero=Billet.num;
         Billet.num++;
+
+        month = month-1;
+        if(month == -1){ //correction du mois
+            month = 12;
+        }
+
         this.date_debut = new Date(year, month, day, hrs, min);
         this.salle = salle;
         this.spectacle = art;
-        this.client=c;
+        this.client=null;
+        this.achat=null;
     }
 
     //methode
@@ -80,6 +96,14 @@ public class Billet {
 
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    public _Achat getAchat() {
+        return achat;
+    }
+
+    public void setAchat(_Achat achat) {
+        this.achat = achat;
     }
 
 

@@ -1,6 +1,8 @@
 package Classe;
 
-public class Adresse {
+import java.io.Serializable;
+
+public class Adresse implements Serializable  {
     //attributs
     private int numero;
     private String rue;

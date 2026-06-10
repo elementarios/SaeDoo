@@ -1,6 +1,8 @@
 package Classe;
 
-public class Orchestre extends Spectacle {
+import java.io.Serializable;
+
+public class Orchestre extends Spectacle implements Serializable {
     //attributs
     private String nom;
 
@@ -20,7 +22,7 @@ public class Orchestre extends Spectacle {
 
     @Override
     public String toString(){
-        return "Artiste["+super.toString()+"]";
+        return "Orchestre["+super.toString()+"]";
     }
 
     public boolean equal(Orchestre a){

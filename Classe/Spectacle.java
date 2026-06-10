@@ -1,6 +1,8 @@
 package Classe;
 
-public abstract class Spectacle {
+import java.io.Serializable;
+
+public abstract class Spectacle implements Serializable  {
     //attribut
     protected String nom;
 
