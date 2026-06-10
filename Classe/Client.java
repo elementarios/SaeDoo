@@ -79,6 +79,10 @@ public class Client {
         this.billets = billets;
     }
 
+    public int getNbBillets(){
+        return this.billets.size();
+    }
+
     @Override
     public String toString(){
         String bill = "";
