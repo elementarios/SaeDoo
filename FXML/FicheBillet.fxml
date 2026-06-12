@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="508.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="495.0" prefWidth="508.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <VBox prefHeight="207.0" prefWidth="198.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Numero :">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                        <TextField editable="false" prefHeight="29.0" prefWidth="55.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Date:">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                        <DatePicker />
+                        <Label text="Heure :">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                        <TextField prefHeight="29.0" prefWidth="35.0" />
+                        <Label text="Minutes :">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                        <TextField prefHeight="29.0" prefWidth="36.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Salle :" />
+                        <TextField />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Nom Spectacle : " />
+                        <TextField prefHeight="29.0" prefWidth="133.0" />
+                        <Label text="Type :">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                        <RadioButton mnemonicParsing="false" selected="true" text="Artiste">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="Type" />
+                           </toggleGroup>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Orchestre" toggleGroup="$Type">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </RadioButton>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+         <bottom>
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" text="Validez" />
+               </children>
+               <padding>
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+               </padding>
+            </HBox>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>

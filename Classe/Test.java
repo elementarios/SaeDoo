@@ -30,6 +30,7 @@ public class Test {
         Sauvergade.enregistrerClients(c2, "sauv.txt");
         Client c3 = Sauvergade.extraireClient("sauv.txt");
         System.out.println(c3);
+        System.out.println(a1.getClass().getName());
     }
     
 }
