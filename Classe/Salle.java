@@ -1,7 +1,8 @@
-package Classe;
+package appli;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class Salle implements Serializable  {
     //attribut
     private String nom;
@@ -23,7 +24,7 @@ public class Salle implements Serializable  {
     
     @Override
     public String toString(){
-        return "Salle[nom:"+this.nom+"]";
+        return this.getNom();
     }
 
     public boolean equal(Salle s){

@@ -1,10 +1,9 @@
-package Classe;
+package appli;
 
 import java.io.Serializable;
 
 public class Artiste extends Spectacle implements Serializable  {
-    //attributs
-    private String nom;
+   
 
     //constructeur
     public Artiste(String nom){
@@ -22,11 +21,14 @@ public class Artiste extends Spectacle implements Serializable  {
 
     @Override
     public String toString(){
-        return "Artiste["+super.toString()+"]";
+        return this.getNom();
     }
 
     public boolean equal(Artiste a){
         return this.nom.equals(a.getNom());
     }
     
+    public String Class(){
+        return "Artiste";
+    }
 }

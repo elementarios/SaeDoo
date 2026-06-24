@@ -1,52 +1,29 @@
-package Classe;
+package appli;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.chrono.Chronology;
 
 public class Billet implements Serializable {
     //attributs
     private int numero;
-    private Date date_debut;
+    private Chronology date_debut;
     private Salle salle;
     private Spectacle spectacle;
     private Client client;
     private static int num = 1;
-    private _Achat achat;
+    private String methodePayement;
 
     //constructeur
-    @SuppressWarnings("deprecation")
-    public Billet(int year,int month,int day,int hrs,int min,Salle salle,Orchestre orc){
-        this.numero=Billet.num;
+    public Billet(int num,Chronology chrono,Salle salle,Spectacle spectacle,String methodePayement){
+        this.numero=num;
         Billet.num++;
-
-        month = month-1;
-        if(month == -1){ //correction du mois
-            month = 12;
-        }
-
-        this.date_debut = new Date(year, month, day, hrs, min);
+        date_debut = chrono;
         this.salle = salle;
-        this.spectacle = orc;
-        this.client = null;
-        this.achat = null;
-    }
-
-    @SuppressWarnings("deprecation")
-    public Billet(int year,int month,int day,int hrs,int min,Salle salle,Artiste art){
-        this.numero=Billet.num;
-        Billet.num++;
-
-        month = month-1;
-        if(month == -1){ //correction du mois
-            month = 12;
-        }
-
-        this.date_debut = new Date(year, month, day, hrs, min);
-        this.salle = salle;
-        this.spectacle = art;
+        this.spectacle = spectacle;
         this.client=null;
-        this.achat=null;
+        this.methodePayement=methodePayement;
     }
+
 
     //methode
 
@@ -58,11 +35,11 @@ public class Billet implements Serializable {
         this.numero = numero;
     }
 
-    public Date getDate_debut() {
+    public Chronology getDate_debut() {
         return date_debut;
     }
 
-    public void setDate_debut(Date date_debut) {
+    public void setDate_debut(Chronology date_debut) {
         this.date_debut = date_debut;
     }
 
@@ -76,6 +53,17 @@ public class Billet implements Serializable {
 
     public Spectacle getSpectacle() {
         return spectacle;
+    }
+    
+    public String getSpectacleClass() {
+    	return spectacle.Class();
+    }
+    
+    public String getSpectacleNom() {
+        if (spectacle != null) {
+            return spectacle.getNom();
+        }
+        return "";
     }
 
     public void setSpectacle(Spectacle spectacle) {
@@ -98,12 +86,12 @@ public class Billet implements Serializable {
         this.client = client;
     }
 
-    public _Achat getAchat() {
-        return achat;
+    public String getAchat() {
+        return this.methodePayement;
     }
 
-    public void setAchat(_Achat achat) {
-        this.achat = achat;
+    public void setAchat(String achat) {
+        this.methodePayement = achat;
     }
 
 
@@ -112,7 +100,5 @@ public class Billet implements Serializable {
         return "Billet[numero:"+this.numero+" ,Date:"+this.date_debut.toString()+" ,Salle:"+this.salle.toString()+" ,Spectacle:"+this.spectacle.toString()+"]";
     }
 
-    public boolean equal(Billet b){
-        return this.numero==b.getNumero() && this.date_debut.equals(b.getDate_debut()) && this.salle.equal(b.getSalle()) && this.spectacle.equal(b.getSpectacle());
-    }
+    
 }

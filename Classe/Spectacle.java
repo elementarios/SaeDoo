@@ -1,4 +1,4 @@
-package Classe;
+package appli;
 
 import java.io.Serializable;
 
@@ -12,21 +12,15 @@ public abstract class Spectacle implements Serializable  {
     }
 
     //methode
-    public String getNom() {
-        return nom;
-    }
+    public abstract String getNom();
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
+    public abstract void setNom(String nom);
 
-    @Override
-    public String toString(){
-        return "Spectacle[nom:"+this.nom+"]";
-    }
 
     public boolean equal(Spectacle s){
         return this.nom.equals(s.getNom());
     }
+    
+    public abstract String Class();
     
 }

@@ -1,4 +1,4 @@
-package Classe;
+package appli;
 
 import java.io.Serializable;
 

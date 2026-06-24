@@ -5,8 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="508.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="508.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.CtrlFicheBillet">
    <children>
       <BorderPane prefHeight="495.0" prefWidth="508.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -19,7 +18,11 @@
                               <Insets left="10.0" />
                            </padding>
                         </Label>
-                        <TextField editable="false" prefHeight="29.0" prefWidth="55.0" />
+                        <TextField fx:id="saisieNumero" onKeyReleased="#verificationNumero" prefHeight="29.0" prefWidth="55.0">
+                           <tooltip>
+                              <Tooltip text="Doit etre au format 000" />
+                           </tooltip></TextField>
+                        <Label fx:id="erreurNombre" text="Doit etre au format 000" textFill="RED" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
@@ -29,25 +32,13 @@
                               <Insets left="10.0" />
                            </padding>
                         </Label>
-                        <DatePicker />
-                        <Label text="Heure :">
-                           <padding>
-                              <Insets left="10.0" />
-                           </padding>
-                        </Label>
-                        <TextField prefHeight="29.0" prefWidth="35.0" />
-                        <Label text="Minutes :">
-                           <padding>
-                              <Insets left="10.0" />
-                           </padding>
-                        </Label>
-                        <TextField prefHeight="29.0" prefWidth="36.0" />
+                        <DatePicker fx:id="saiseJour" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Label text="Salle :" />
-                        <TextField />
+                        <TextField fx:id="saisieSalle" />
                      </children>
                      <opaqueInsets>
                         <Insets />
@@ -59,13 +50,13 @@
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Label text="Nom Spectacle : " />
-                        <TextField prefHeight="29.0" prefWidth="133.0" />
+                        <TextField fx:id="saisieSpectacle" prefHeight="29.0" prefWidth="133.0" />
                         <Label text="Type :">
                            <padding>
                               <Insets left="10.0" />
                            </padding>
                         </Label>
-                        <RadioButton mnemonicParsing="false" selected="true" text="Artiste">
+                        <RadioButton fx:id="bnArtiste" mnemonicParsing="false" selected="true" text="Artiste">
                            <toggleGroup>
                               <ToggleGroup fx:id="Type" />
                            </toggleGroup>
@@ -73,7 +64,7 @@
                               <Insets left="10.0" />
                            </padding>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Orchestre" toggleGroup="$Type">
+                        <RadioButton fx:id="bnOrchestre" mnemonicParsing="false" text="Orchestre" toggleGroup="$Type">
                            <padding>
                               <Insets left="10.0" />
                            </padding>
@@ -83,13 +74,43 @@
                         <Insets left="10.0" />
                      </padding>
                   </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Méthode de Payement">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                        <RadioButton fx:id="bnCB" mnemonicParsing="false" selected="true" text="Carte Bancaire">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="payement" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="bnEspece" mnemonicParsing="false" text="Espece" toggleGroup="$payement">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </RadioButton>
+                     </children>
+                     <opaqueInsets>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </opaqueInsets>
+                  </HBox>
                </children>
             </VBox>
          </center>
          <bottom>
-            <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="83.0" prefWidth="508.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" text="Validez" />
+                  <Button fx:id="bnRemboursement" mnemonicParsing="false" onAction="#Remboursement" text="Remboursement">
+                     <HBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="bnValide" mnemonicParsing="false" onAction="#fermer" text="Validez" />
                </children>
                <padding>
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />

@@ -5,33 +5,32 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="494.0" prefWidth="695.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="494.0" prefWidth="695.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.CtrlFicheClient">
    <children>
-      <TableView layoutX="14.0" layoutY="176.0" prefHeight="302.0" prefWidth="514.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="167.0" AnchorPane.topAnchor="176.0">
+      <TableView fx:id="tableBillet" layoutX="14.0" layoutY="176.0" onMouseClicked="#selectionner" prefHeight="302.0" prefWidth="514.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="167.0" AnchorPane.topAnchor="176.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Numero" />
-          <TableColumn prefWidth="186.0" text="Date" />
-            <TableColumn prefWidth="118.0" text="Salle" />
-            <TableColumn prefWidth="133.0" text="Spectacle" />
+          <TableColumn fx:id="colNum" prefWidth="75.0" text="Numero" />
+            <TableColumn fx:id="colSalle" prefWidth="167.0" text="Salle" />
+            <TableColumn fx:id="colSpectacle" prefWidth="271.0" text="Spectacle" />
         </columns>
          <contextMenu>
             <ContextMenu>
               <items>
-                <MenuItem mnemonicParsing="false" text="Ajouter" />
+                <MenuItem fx:id="itemNouveau" mnemonicParsing="false" onAction="#nouveau" text="Ajouter" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Details" />
+                  <MenuItem fx:id="itemDetail" mnemonicParsing="false" onAction="#detail" text="Details" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Supprimer" />
+                  <MenuItem fx:id="itemSupprimer" mnemonicParsing="false" onAction="#supprimer" text="Supprimer" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Rembourser" />
+                  <MenuItem fx:id="itemRembourser" mnemonicParsing="false" onAction="#rembourser" text="Rembourser" />
               </items>
             </ContextMenu>
          </contextMenu>
       </TableView>
-      <Button layoutX="571.0" layoutY="225.0" minWidth="83.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="94.0" text="Ajouter" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="225.0" />
-      <Button layoutX="571.0" layoutY="270.0" minWidth="83.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="94.0" text="Details" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="270.0" />
-      <Button layoutX="571.0" layoutY="312.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="94.0" text="Supprimer" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="315.0" />
-      <Button layoutX="618.0" layoutY="451.0" mnemonicParsing="false" text="Fermer" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+      <Button fx:id="bnNouveau" layoutX="571.0" layoutY="225.0" minWidth="83.0" mnemonicParsing="false" onAction="#nouveau" prefHeight="29.0" prefWidth="94.0" text="Ajouter" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="225.0" />
+      <Button fx:id="bnDetail" layoutX="571.0" layoutY="270.0" minWidth="83.0" mnemonicParsing="false" onAction="#detail" prefHeight="29.0" prefWidth="94.0" text="Details" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="270.0" />
+      <Button fx:id="bnSupprimer" layoutX="571.0" layoutY="312.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="29.0" prefWidth="94.0" text="Supprimer" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="315.0" />
+      <Button fx:id="bnFermer" layoutX="618.0" layoutY="451.0" mnemonicParsing="false" onAction="#fermer" text="Fermer" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
       <VBox layoutY="3.0" prefHeight="135.0" prefWidth="695.0">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="77.0" prefWidth="625.0">
@@ -40,7 +39,7 @@
                      <padding>
                         <Insets left="10.0" />
                      </padding></Label>
-                  <TextField prefHeight="29.0" prefWidth="78.0">
+                  <TextField fx:id="saisieID" prefHeight="29.0" prefWidth="78.0">
                      <tooltip>
                         <Tooltip text="5 caractère max" />
                      </tooltip>
@@ -50,19 +49,19 @@
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <TextField prefHeight="29.0" prefWidth="133.0" />
+                  <TextField fx:id="saisieNom" prefHeight="29.0" prefWidth="133.0" />
                   <Label text="Prénom:">
                      <padding>
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <TextField prefHeight="29.0" prefWidth="126.0" />
+                  <TextField fx:id="saisiePrenom" prefHeight="29.0" prefWidth="126.0" />
                   <Label text="email:">
                      <padding>
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <TextField>
+                  <TextField fx:id="SaisieEmail">
                      <tooltip>
                         <Tooltip text="doit contenir @" />
                      </tooltip>
@@ -75,7 +74,7 @@
                </VBox.margin>
                <children>
                   <Label text="Code Postal :" />
-                  <TextField prefHeight="29.0" prefWidth="90.0">
+                  <TextField fx:id="saisieCodePostal" onKeyReleased="#verificationNumero" prefHeight="29.0" prefWidth="90.0">
                      <tooltip>
                         <Tooltip text="5 chiffres uniquement" />
                      </tooltip>
@@ -85,26 +84,34 @@
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <TextField prefHeight="29.0" prefWidth="131.0" />
+                  <TextField fx:id="saisieVille" prefHeight="29.0" prefWidth="131.0" />
                   <Label text="Rue:">
                      <padding>
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <TextField prefHeight="29.0" prefWidth="113.0" />
+                  <TextField fx:id="saisieRue" prefHeight="29.0" prefWidth="113.0" />
                   <Label text="Numero:">
                      <padding>
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <TextField prefHeight="29.0" prefWidth="38.0">
+                  <TextField fx:id="saisieNumero" onKeyReleased="#verificationNumero" prefHeight="29.0" prefWidth="38.0">
                      <tooltip>
                         <Tooltip text="chiffre uniquement" />
                      </tooltip>
                   </TextField>
+                  <Label fx:id="erreurNombre" prefHeight="52.0" prefWidth="64.0" text="nombre!!" textFill="RED" />
                </children></HBox>
          </children>
       </VBox>
-      <Button layoutX="571.0" layoutY="353.0" minWidth="83.0" mnemonicParsing="false" text="Rembourser" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="360.0" />
+      <Button fx:id="bnRembourser" layoutX="571.0" layoutY="353.0" minWidth="83.0" mnemonicParsing="false" onAction="#rembourser" text="Rembourser" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="360.0" />
+      <HBox alignment="CENTER_LEFT" layoutX="25.0" layoutY="127.0" prefHeight="49.0" prefWidth="386.0">
+         <children>
+            <Label text="Recherche Spectacle:" />
+            <TextField fx:id="saisieSpectacle" onKeyReleased="#rechercheNum" />
+         </children>
+      </HBox>
+      <Button fx:id="bnSauvergarder" layoutX="541.0" layoutY="137.0" mnemonicParsing="false" onAction="#sauvergarder" text="Sauvergarder" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="137.0" />
    </children>
 </AnchorPane>
