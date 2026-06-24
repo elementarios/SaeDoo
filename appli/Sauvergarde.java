@@ -48,7 +48,6 @@ public class Sauvergarde {
         sortie.close();
     }
 
-    // Nouvelle méthode pour récupérer TOUTE la liste
     @SuppressWarnings("unchecked")
 	static public List<Client> extraireTousLesClients(String Fichier) throws FileNotFoundException, IOException, ClassNotFoundException {
     	File f = new File(Fichier);
